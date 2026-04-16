@@ -133,6 +133,7 @@ h1{
     width: 110px;
     margin-top: 15px;
     box-shadow: 0 1px 5px grey;
+    cursor: pointer;
 
 }
 
@@ -145,6 +146,7 @@ h1{
     width: 110px;
     margin-top: 15px;
     box-shadow: 0 1px 5px grey;
+    cursor: pointer;
 }
 
 .button-gt3{
@@ -156,6 +158,7 @@ h1{
     width: 110px;
     margin-top: 15px;
     box-shadow: 0 1px 5px grey;
+    cursor: pointer;
 }
 
 .m8-info{
