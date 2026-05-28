@@ -3,36 +3,81 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>JavaScript Завдання</title>
+    <title>Lab_3</title>
+
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Rajdhani:wght@400;500;600&display=swap" rel="stylesheet">
 
     <style>
         body {
-            font-family: Arial, sans-serif;
+            font-family: 'Rajdhani', sans-serif;
+            color: #e8e8e8;
             margin: 20px;
+            background-color: #141314;
+        }
+
+        h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 13px;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            color: #c9a84c;
+            margin-bottom: 18px;
         }
 
         section {
             margin-bottom: 50px;
-            padding: 15px;
-            border: 1px solid #ccc;
+            padding: 24px;
+            border: 1px solid #2a2a2a;
+            background-color: #1a1a1a;
+            border-radius: 6px;
+        }
+
+        p {
+            font-family: 'Rajdhani', sans-serif;
+            color: #e8e8e8;
+            letter-spacing: 0.5px;
         }
 
         #randomImage {
             position: absolute;
             width: 80px;
+            transition: left 0.3s ease, top 0.3s ease;
         }
 
         #clock {
-            font-size: 30px;
-            font-weight: bold;
+            font-family: 'Playfair Display', serif;
+            font-size: 64px;
+            font-weight: 700;
+            color: #c9a84c;
+            letter-spacing: 6px;
         }
 
         #eraseBlock {
             width: 400px;
             height: 200px;
-            background: linear-gradient(to right, steelblue, lightblue);
+            background: linear-gradient(to right, #c9a84c, #00b4d8);
             overflow: hidden;
             transition: width 0.2s;
+            border-radius: 6px;
+        }
+
+        button {
+            font-family: 'Rajdhani', sans-serif;
+            font-size: 12px;
+            font-weight: 600;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            background-color: transparent;
+            height: 40px;
+            width: 180px;
+            border: 1px solid #c9a84c;
+            border-radius: 6px;
+            color: #c9a84c;
+            cursor: pointer;
+        }
+
+        #erase {
+            margin-top: 16px;
         }
     </style>
 </head>
@@ -50,7 +95,7 @@
                 <p style="font-size:${size}px">
                     ${text}
                 </p>
-            `
+                `
         }
 
         showText("Маленький текст", 14);
@@ -142,7 +187,7 @@
 
     <div id="eraseBlock"></div>
 
-    <button onclick="startErase()">
+    <button id="erase" onclick="startErase()">
         Запустити ефект
     </button>
 
@@ -154,7 +199,7 @@
 
             let width = 400;
 
-            const timer = setInterval(() => {
+            const timer = setInterval(function() {
 
                 width -= 5;
 
