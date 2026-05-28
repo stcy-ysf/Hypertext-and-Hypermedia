@@ -23,7 +23,7 @@ body {
     display: grid;
     grid-auto-flow: column;
     gap: 30px;
-    justify-content: end;
+    justify-content: center;
 }
 
 .header__nav-link {
@@ -38,7 +38,7 @@ body {
     display: grid;
     grid-auto-flow: column;
     gap: 10px;
-    margin-left: 100px;
+    margin-right: 60px;
 }
 
 .hero {
@@ -50,7 +50,6 @@ body {
     color: white;
     gap: 20px;
 }
-
 
 .button--inventory {
     background-color: transparent;
@@ -87,8 +86,6 @@ body {
     font-size: 16px;
     cursor: pointer;
 }
-
-
 
 .inventory {
     background-color: white;
@@ -148,7 +145,6 @@ body {
     gap: 30px;
     color: #1fa1d8;
 }
-
 
 .car-detail__row {
     display: grid;
@@ -221,7 +217,6 @@ body {
     padding-top: 30px;
 }
 
-
 .footer {
     padding: 50px;
     background-color: #252525;
@@ -245,12 +240,209 @@ body {
     color: white;
 }
 
-
 .container {
     display: grid;
     grid-template-columns: auto auto auto;
     padding: 10px;
     background-color: rgba(217, 217, 219, 0.58);
-    font-size: 30px;
+    font-size: 5px;
     text-align: center;
+}
+
+@media screen and (max-width: 1024px) {
+
+    .header__logo {
+        margin-left: 20px;
+    }
+
+    .header__nav {
+        gap: 15px;
+    }
+
+    .header__nav-link {
+        font-size: 16px;
+    }
+
+    .header__flags {
+        margin-right: 20px;
+    }
+
+    .hero {
+        height: 600px;
+    }
+
+    .inventory__item {
+        grid-template-columns: 300px 1fr;
+        width: 85%;
+    }
+
+    .car-detail__row {
+        grid-template-columns: 1fr;
+        padding: 0 30px;
+    }
+
+    .car-detail__row img {
+        width: 100% !important;
+        height: auto !important;
+        padding-left: 0 !important;
+    }
+
+    .car-detail__card {
+        width: 100%;
+        box-sizing: border-box;
+    }
+
+    .car-detail__title {
+        padding-left: 30px;
+    }
+
+    .car-detail__description {
+        padding-left: 30px;
+        padding-right: 30px;
+    }
+}
+
+@media screen and (max-width: 768px) {
+
+    .header {
+        grid-template-columns: 1fr auto;
+        grid-template-rows: auto auto;
+        gap: 10px;
+        padding: 10px 15px;
+    }
+
+    .header__logo {
+        margin-left: 0;
+        grid-column: 1;
+        grid-row: 1;
+    }
+
+    .header__flags {
+        margin-right: 0;
+        grid-column: 2;
+        grid-row: 1;
+        justify-content: end;
+    }
+
+    .header__nav {
+        grid-column: 1 / -1;
+        grid-row: 2;
+        justify-content: start;
+        gap: 12px;
+    }
+
+    .header__nav-link {
+        font-size: 16px;
+    }
+
+    .hero {
+        height: 500px;
+    }
+
+    .hero h1 {
+        font-size: 28px;
+        text-align: center;
+        padding: 0 20px;
+    }
+
+    .inventory__item {
+        grid-template-columns: 1fr;
+        width: 79%;
+    }
+
+    .inventory__item img {
+        width: 100% !important;
+        height: auto !important;
+    }
+
+    .inventory__item-info {
+        padding-left: 0;
+    }
+
+    .inventory__brands {
+        grid-auto-flow: column;
+        justify-content: center;
+        gap: 15px;
+        padding: 20px 10px;
+    }
+
+    .footer {
+        font-size: 20px;
+        padding: 30px 15px;
+    }
+
+    .footer__inner {
+        grid-auto-flow: row;
+        grid-template-columns: repeat(4, auto);
+        justify-content: center;
+        gap: 10px;
+    }
+}
+
+@media screen and (max-width: 480px) {
+
+    .header__logo img {
+        width: 130px !important;
+    }
+
+    .header__nav-link {
+        font-size: 12px;
+    }
+
+    .hero {
+        height: 400px;
+    }
+
+    .hero h1 {
+        font-size: 22px;
+    }
+
+    .button--inventory {
+        font-size: 14px;
+        padding: 8px 30px;
+    }
+
+    .inventory__item {
+        width: 95%;
+    }
+
+    .inventory__item-info h1 {
+        font-size: 18px;
+    }
+
+    .inventory__brands {
+        font-size: 16px;
+        display: grid;
+        grid-template-columns: repeat(4, 80px);
+    }
+
+    .car-detail__title {
+        font-size: 20px;
+        padding-left: 15px;
+        padding-top: 20px;
+    }
+
+    .car-detail__description {
+        padding-left: 15px;
+        padding-right: 15px;
+        font-size: 14px;
+    }
+
+    .car-detail__description-title {
+        font-size: 24px;
+    }
+
+    .car-detail__price {
+        font-size: 22px;
+    }
+
+    .footer {
+        font-size: 16px;
+        padding: 20px 10px;
+    }
+
+    .footer__inner {
+        grid-template-columns: repeat(2, auto);
+        row-gap: 15px;
+    }
 }
