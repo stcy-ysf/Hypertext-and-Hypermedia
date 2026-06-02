@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Horizon Blog</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body { background: #f4f5f0; font-family: Georgia, serif; }
+
+        /* --- Article card --- */
+        .card {
+            border: none;
+            border-radius: 12px;
+            overflow: hidden;
+            height: 100%;
+            box-shadow: 0 2px 12px rgba(0,0,0,0.08);
+            margin-bottom: 12px;
+        }
+        .card img    {
+            width: 100%;
+            height: 190px;
+            object-fit: cover;
+        }
+
+        .card-body   {
+            padding: 16px;
+        }
+
+        .card-title
+        { font-weight: 700;
+            font-size: 0.95rem;
+            line-height: 1.4;
+        }
+
+        .card-text   {
+            font-size: 0.82rem;
+            color: #666;
+            line-height: 1.6;
+        }
+
+        .tag {
+            display: inline-block;
+            background: #e8f0fe;
+            color: #3b5bdb;
+            font-size: 0.65rem;
+            padding: 3px 9px;
+            border-radius: 20px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 8px;
+        }
+
+        .author {
+            font-size: 0.74rem;
+            color: #999;
+            display: flex;
+            align-items: center;
+            gap: 7px;
+            margin-top: 10px;
+        }
+
+        .author img {
+            width: 22px;
+            height: 22px;
+            border-radius: 50%;
+            object-fit: cover;
+        }
+
+        /* --- Outer wrapper (Row 2) --- */
+        .outer {
+            border: 2px dashed #ccc;
+            border-radius: 12px;
+            padding: 16px;
+            background: #fff;
+        }
+
+        /* --- Empty space (xs only) --- */
+        .empty-space {
+            min-height: 90px;
+            border: 2px dashed #ddd;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #bbb;
+            font-size: 0.8rem;
+            font-style: italic;
+            margin-bottom: 12px;
+        }
+
+        /* --- Row 3: dark featured strip --- */
+        .featured-strip {
+            background: #12192e;
+            color: white;
+            border-radius: 12px;
+            padding: 28px 24px;
+            height: 100%;
+            min-height: 140px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            margin-bottom: 12px;
+        }
+
+        .featured-strip .hot-tag {
+            background: #e63946;
+            color: white;
+            font-size: 0.6rem;
+            font-weight: 700;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            padding: 3px 10px;
+            border-radius: 20px;
+            display: inline-block;
+            margin-bottom: 12px;
+        }
+
+        .featured-strip h5 {
+            font-weight: 700;
+            line-height: 1.4;
+            font-size: 0.95rem;
+        }
+
+        .featured-strip p   {
+            font-size: 0.8rem;
+            opacity: 0.7;
+            margin: 8px 0;
+        }
+
+        .featured-strip small {
+            font-size: 0.7rem;
+            opacity: 0.5;
+        }
+
+
+
+        /* --- Stat boxes (Row 3) --- */
+        .stat-box {
+            background: white;
+            border-radius: 12px;
+            padding: 20px 10px;
+            text-align: center;
+            height: 100%;
+            min-height: 140px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.07);
+            margin-bottom: 12px;
+        }
+
+        .stat-box .num   {
+            font-size: 2rem;
+            font-weight: 800;
+            color: #12192e;
+            line-height: 1;
+        }
+
+        .stat-box .lbl   {
+            font-size: 0.68rem;
+            color: #aaa;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-top: 5px;
+        }
+
+
+        /* --- Section heading --- */
+        .sec-h {
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: #12192e;
+            margin-bottom: 14px;
+            padding-bottom: 8px;
+            border-bottom: 2px solid #e0e0e0;
+        }
+
+        .section {
+            margin-bottom: 32px;
+        }
+
+    </style>
+</head>
+<body>
+
+<!-- ── Navbar ────────────────────────────────────────────── -->
+<nav class="navbar navbar-expand-lg navbar-light bg-white border-bottom shadow-sm mb-4">
+    <div class="container">
+        <a class="navbar-brand fw-bold fs-4" href="#">✦ Horizon</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#nav">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="nav">
+            <ul class="navbar-nav ms-auto gap-1">
+                <li class="nav-item"><a class="nav-link" href="#">Home</a></li>
+                <li class="nav-item"><a class="nav-link" href="#">Technology</a></li>
+                <li class="nav-item"><a class="nav-link" href="#">Lifestyle</a></li>
+                <li class="nav-item"><a class="nav-link fw-semibold" href="#">Subscribe</a></li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<div class="container">
+
+    <!-- ════════════════════════════════════════════════════════
+         ROW 1 — 2 featured cards
+         xs → col-12 (stacked) | md+ → col-md-5 (centred)
+    ═══════════════════════════════════════════════════════════ -->
+    <div class="section">
+        <p class="sec-h">Featured</p>
+        <div class="row justify-content-md-center g-2">
+
+            <div class="col-12 col-md-5">
+                <div class="card">
+                    <img src="data:image/jpeg;base64,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" alt="Tech article">
+                    <div class="card-body">
+                        <span class="tag">Technology</span>
+                        <h5 class="card-title">The Future of Remote Work: What 2025 Looks Like</h5>
+                        <p class="card-text">Distributed teams, AI tools, and flexible schedules have reshaped how the world does business. Here's what changed — and what's still coming.</p>
+                        <div class="author">
+                            <img src="https://picsum.photos/seed/face1/50/50" alt=""> Sarah Mitchell · Apr 18 · 5 min read
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-12 col-md-5">
+                <div class="card">
+                    <img src="https://thumbs.dreamstime.com/b/unmade-bed-morning-sunlight-coming-window-cozy-warm-aesthetic-soft-lighting-early-sunlit-bedroom-324606621.jpg" alt="Lifestyle article">
+                    <div class="card-body">
+                        <span class="tag" style="background:#fdf0e0;color:#e07a14;">Lifestyle</span>
+                        <h5 class="card-title">10 Morning Habits of Highly Productive People</h5>
+                        <p class="card-text">From journaling to cold showers, we broke down the routines of top performers to find what actually works — and what's just hype.</p>
+                        <div class="author">
+                            <img src="https://picsum.photos/seed/face2/50/50" alt=""> James Carter · Apr 15 · 4 min read
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+
+    <!-- ════════════════════════════════════════════════════════
+         ROW 2 — outer block with 2 nested article cards
+         sm  → Nested 2.1 disappears  (d-none d-md-block)
+         xs  → Nested 2.2 = empty space
+    ═══════════════════════════════════════════════════════════ -->
+    <div class="section">
+        <p class="sec-h">Latest Posts</p>
+        <div class="row">
+            <div class="col-12">
+                <div class="outer">
+                    <div class="row g-2 justify-content-center">
+
+                        <!-- Nested 2.1 — visible on md+ only -->
+                        <div class="col-md-5 d-none d-md-block">
+                            <div class="card">
+                                <img src="https://images.stockcake.com/public/a/c/9/ac9e6304-045f-4624-bc19-96cd8002f141_large/minimalist-office-desk-stockcake.jpg" alt="minimalism">
+                                <div class="card-body">
+                                    <span class="tag" style="background:#e6f9f1;color:#0e7a4a;">Mindset</span>
+                                    <h5 class="card-title">How Minimalism Changed My Relationship With Stuff</h5>
+                                    <p class="card-text">I got rid of 80% of my belongings. Six months later — here's what I regret, and what surprised me most.</p>
+                                    <div class="author">
+                                        <img src="https://picsum.photos/seed/face3/50/50" alt=""> Elena Brooks · Apr 11 · 3 min read
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Nested 2.2 — card on sm+, empty space on xs -->
+                        <div class="col-12 col-sm-5">
+                            <div class="card d-none d-sm-block">
+                                <img src="https://images.bauerhosting.com/legacy/media/6089/5c83/2a34/9f72/6a74/45c1/Bistro%20chairs%20and%20table%20on%20balcony%20with%20view%20in%20the%20yard.jpg?ar=16%3A9&fit=crop&crop=top&auto=format&w=1440&q=80" alt="garden">
+                                <div class="card-body">
+                                    <span class="tag" style="background:#edf6e0;color:#3a7d12;">Nature</span>
+                                    <h5 class="card-title">A Beginner's Guide to Urban Gardening in Small Spaces</h5>
+                                    <p class="card-text">No yard? No problem. Balconies, windowsills, and countertops are all you need to grow fresh food at home.</p>
+                                    <div class="author">
+                                        <img src="https://picsum.photos/seed/face4/50/50" alt=""> Tom Vega · Apr 9 · 6 min read
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="empty-space d-sm-none">empty space (xs)</div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- ════════════════════════════════════════════════════════
+         ROW 3 — featured strip + 2 stat boxes
+         xs  → col-12 / col-6 / col-6
+         md+ → col-md-7 / col-md-2 / col-md-2
+    ═══════════════════════════════════════════════════════════ -->
+    <div class="section">
+        <p class="sec-h">Trending Now</p>
+        <div class="row g-2">
+
+            <div class="col-12 col-md-7">
+                <div class="featured-strip">
+                    <span class="hot-tag" style="background-color: #b6010">🔥 Trending</span>
+                    <h5>Why Deep Work is the Skill of the Decade — and How to Actually Practice It</h5>
+                    <p>Cal Newport's concept has taken over the productivity world, but most people misunderstand it. We explain the real version and how to build the habit from scratch.</p>
+                    <small>By David Okafor · 8 min read · 42,000 views</small>
+                </div>
+            </div>
+
+            <div class="col-6 col-md-2">
+                <div class="stat-box">
+                    <div class="num">128</div>
+                    <div class="lbl">Articles</div>
+                </div>
+            </div>
+
+            <div class="col-6 col-md-2">
+                <div class="stat-box">
+                    <div class="num">24k</div>
+                    <div class="lbl">Readers</div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+</div>
+
+<footer class="text-center py-4 mt-2 border-top" style="font-size:0.78rem;color:#aaa;">
+    © 2026 Horizon Blog · Made with Bootstrap 5 by me:)
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
