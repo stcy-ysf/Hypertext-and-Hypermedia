@@ -8,7 +8,6 @@
     <style>
         body { background: #f4f5f0; font-family: Georgia, serif; }
 
-        /* --- Article card --- */
         .card {
             border: none;
             border-radius: 12px;
@@ -68,7 +67,6 @@
             object-fit: cover;
         }
 
-        /* --- Outer wrapper (Row 2) --- */
         .outer {
             border: 2px dashed #ccc;
             border-radius: 12px;
@@ -76,7 +74,6 @@
             background: #fff;
         }
 
-        /* --- Empty space (xs only) --- */
         .empty-space {
             min-height: 90px;
             border: 2px dashed #ddd;
@@ -90,7 +87,6 @@
             margin-bottom: 12px;
         }
 
-        /* --- Row 3: dark featured strip --- */
         .featured-strip {
             background: #12192e;
             color: white;
@@ -135,8 +131,6 @@
         }
 
 
-
-        /* --- Stat boxes (Row 3) --- */
         .stat-box {
             background: white;
             border-radius: 12px;
@@ -169,7 +163,6 @@
         }
 
 
-        /* --- Section heading --- */
         .sec-h {
             font-size: 1.1rem;
             font-weight: 700;
@@ -187,7 +180,6 @@
 </head>
 <body>
 
-<!-- ── Navbar ────────────────────────────────────────────── -->
 <nav class="navbar navbar-expand-lg navbar-light bg-white border-bottom shadow-sm mb-4">
     <div class="container">
         <a class="navbar-brand fw-bold fs-4" href="#">✦ Horizon</a>
@@ -207,10 +199,6 @@
 
 <div class="container">
 
-    <!-- ════════════════════════════════════════════════════════
-         ROW 1 — 2 featured cards
-         xs → col-12 (stacked) | md+ → col-md-5 (centred)
-    ═══════════════════════════════════════════════════════════ -->
     <div class="section">
         <p class="sec-h">Featured</p>
         <div class="row justify-content-md-center g-2">
@@ -245,13 +233,7 @@
 
         </div>
     </div>
-
-
-    <!-- ════════════════════════════════════════════════════════
-         ROW 2 — outer block with 2 nested article cards
-         sm  → Nested 2.1 disappears  (d-none d-md-block)
-         xs  → Nested 2.2 = empty space
-    ═══════════════════════════════════════════════════════════ -->
+    
     <div class="section">
         <p class="sec-h">Latest Posts</p>
         <div class="row">
@@ -259,7 +241,6 @@
                 <div class="outer">
                     <div class="row g-2 justify-content-center">
 
-                        <!-- Nested 2.1 — visible on md+ only -->
                         <div class="col-md-5 d-none d-md-block">
                             <div class="card">
                                 <img src="https://images.stockcake.com/public/a/c/9/ac9e6304-045f-4624-bc19-96cd8002f141_large/minimalist-office-desk-stockcake.jpg" alt="minimalism">
@@ -274,7 +255,6 @@
                             </div>
                         </div>
 
-                        <!-- Nested 2.2 — card on sm+, empty space on xs -->
                         <div class="col-12 col-sm-5">
                             <div class="card d-none d-sm-block">
                                 <img src="https://images.bauerhosting.com/legacy/media/6089/5c83/2a34/9f72/6a74/45c1/Bistro%20chairs%20and%20table%20on%20balcony%20with%20view%20in%20the%20yard.jpg?ar=16%3A9&fit=crop&crop=top&auto=format&w=1440&q=80" alt="garden">
@@ -295,13 +275,7 @@
             </div>
         </div>
     </div>
-
-
-    <!-- ════════════════════════════════════════════════════════
-         ROW 3 — featured strip + 2 stat boxes
-         xs  → col-12 / col-6 / col-6
-         md+ → col-md-7 / col-md-2 / col-md-2
-    ═══════════════════════════════════════════════════════════ -->
+    
     <div class="section">
         <p class="sec-h">Trending Now</p>
         <div class="row g-2">
